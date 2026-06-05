@@ -1,0 +1,6 @@
+flask
+yt-dlp
+waitress
+python-dotenv
+itsdangerous
+werkzeug
