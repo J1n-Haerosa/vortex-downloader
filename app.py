@@ -1,4 +1,3 @@
-```python
 import os
 import json
 import time
@@ -932,6 +931,3 @@ if __name__ == '__main__':
     print("===========================================")
     
     serve(app, host='0.0.0.0', port=5000, threads=12)
-
-
-```
