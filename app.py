@@ -906,21 +906,18 @@ def download_file(token):
     return "File tidak ditemukan atau telah dihapus.", 404
 
 # ==========================================
-# MENJALANKAN SERVER
+# MNJALANKAN SERVER
 # ==========================================
-if __name__ == '__main__':
-    # Di Windows, multiprocessing butuh spawn protection
-    multiprocessing.freeze_support()
-
+if __name__ == "__main__":
     gc_thread = threading.Thread(target=bersihkan_sampah_sistem)
     gc_thread.daemon = True
     gc_thread.start()
-    
+
     for _ in range(MAKSIMAL_WORKER):
         t = threading.Thread(target=worker_download)
         t.daemon = True
         t.start()
-    
+
     print("===========================================")
     print("[√] VORTEX SERVER V9 (THE FORTRESS EDITION)")
     print("[√] Multiprocessing Hard-Kill Timeout Aktif")
@@ -929,6 +926,6 @@ if __name__ == '__main__':
     print("[√] Server Berjalan Menggunakan Waitress (WSGI)")
     print("[√] Buka di browser: http://localhost:5000")
     print("===========================================")
-    
+
     port = int(os.environ.get("PORT", 5000))
-serve(app, host="0.0.0.0", port=port, threads=12)
+    serve(app, host="0.0.0.0", port=port, threads=12)
